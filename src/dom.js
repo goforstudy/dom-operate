@@ -21,4 +21,21 @@ window.dom = {
         dom.before(node, parent);
         dom.append(parent, node)
     },
+    /**
+     * 删除
+     *  */ 
+    remove(node){
+        node.parentNode.removeChild(node);
+        return node;
+    },
+
+    empty(node){
+        const {childNodes} = node;
+        const array = [];
+        for(let i = childNodes.length - 1; i >= 0; i--){
+            array.push(childNodes[i]);
+            dom.remove(childNodes[i]);
+        }
+        return array;
+    }
 };
