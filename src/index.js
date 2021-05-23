@@ -1,1 +1,4 @@
-console.log(dom.create("<div><span>1</span></div>"))
+const div = dom.create("<div>newDiv</div>");
+console.log(div);
+
+dom.after(test, div)
