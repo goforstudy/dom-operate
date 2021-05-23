@@ -1,0 +1,1 @@
+console.log(dom.create("<div><span>1</span></div>"))
