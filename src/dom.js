@@ -37,5 +37,67 @@ window.dom = {
             dom.remove(childNodes[i]);
         }
         return array;
+    },
+    /**
+     * 改
+     */
+    // 节点属性
+     attr(node, name, value){
+        if(arguments.length === 3){
+            node.setAttribute(name, value)
+        } else if(arguments.length === 2){
+            return node.getAttribute(name)
+        }
+    },
+    // 节点文本
+    text(node, string){
+        if(arguments.length === 2){
+            'innerText' in node ? 
+            node.innerText = string :
+            node.textContent = string;
+        } else if(arguments.length === 1){
+            return 'innerText' in node ? 
+            node.innerText : node.textContent ;
+        }   
+    },
+    // html
+    html(node, string){
+        if(arguments.length === 2){
+            node.innerHTML = string;
+        } else if(arguments.length === 1){
+            return node.innerHTML
+        }
+    },
+    // 属性
+    style(node, object, value){
+        if(arguments.length === 3){
+            node.style[object] = value;
+        } else if(arguments.length === 2){
+            if(typeof object === 'string'){
+                return node.style[object];
+            } else {
+                // for(let key in object){
+                //     node.style[key] = object[key]
+                // }
+                Object.keys(object).forEach(
+                    (key, index) => {
+                        node.style[key] = object[key]
+                    }
+                )
+            }
+        }
+    },
+    // class
+    class: {
+        add(node, className){
+            node.classList.add(className)
+        },
+        remove(node, className){
+            node.classList.remove(className)
+        },
+        has(node, className){
+            return node.classList.contains(className)
+        }
     }
+
 };

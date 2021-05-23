@@ -11,3 +11,14 @@ dom.wrap(test, div3)
 // 删除测试
 const removeNodes = dom.empty(empty);
 console.log(removeNodes)
+
+dom.style(test, {border: '1px solid red', color: 'blue'})
+
+console.log(dom.style(test, 'color'));
+
+dom.style(test, 'font-size', '30px')
+
+dom.class.add(test, 'gray');
+console.log(dom.class.has(test, 'gray'))
+dom.class.remove(test, 'gray');
+console.log(dom.class.has(test, 'gray'))
