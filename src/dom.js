@@ -1,8 +1,8 @@
 window.dom = {
     create(string){
-        const container = document.createElement("div");
-        container.innerHTML = string;
-        return container.children[0]
+        const container = document.createElement("template");
+        container.innerHTML = string.trim();
+        return container.content.firstChild
     }
     // create(tagName){
     //     return document.createElement(tagName)
