@@ -22,3 +22,14 @@ dom.class.add(test, 'gray');
 console.log(dom.class.has(test, 'gray'))
 dom.class.remove(test, 'gray');
 console.log(dom.class.has(test, 'gray'))
+
+function say(){
+    console.log('hello')
+}
+dom.on(test, 'click',  say)
+dom.off(test, 'click',  say)
+
+console.log(dom.find('#test'))
+
+console.log(dom.find(".red"))
+console.log(dom.find(".red", div1))
